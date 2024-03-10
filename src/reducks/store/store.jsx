@@ -1,10 +1,9 @@
-import { createStore } from "redux";
-import counterReducer from "../reducers/counterReducer";
+import { applyMiddleware, createStore } from "redux";
 
-const store = createStore(counterReducer);
+import todosReducer from "../reducers/todosReducer";
+import { thunk } from "redux-thunk";
+
+
+const store = createStore(todosReducer, applyMiddleware(thunk));
 export default store;
-// store.subscribe(() => {
-//     console.log(store.getState())
-// })
 
-// store.dispatch()
